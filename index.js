@@ -12,7 +12,7 @@ const tutorials = [
 ];
 
 
-function capitalizeFirstLetter(tutorials){
+/*function capitalizeFirstLetter(tutorials){
   for(let i = 0 ; i < tutorials.length ; i++){
     let str = tutorials[i].split(" ");
     for( let j = 0 ; j < str.length ; j++){
@@ -24,12 +24,20 @@ function capitalizeFirstLetter(tutorials){
        console.log(tutorials[i]);
   }
   return tutorials;
-}
+} */
+const titleCased = () => {
 
-const titleCased = ()=> {
-  
+  function capitalizeWord(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+ 
+    return tutorials.map(sentence => {
+    const words = sentence.split(' ');
+    const capitalizedWords = words.map(word => capitalizeWord(word));
+    return capitalizedWords.join(' ');
+  });
+};
 
- return capitalizeFirstLetter(tutorials)
+const capitalizedTutorials = titleCased();
+console.log(capitalizedTutorials);
 
-}
-titleCased();
